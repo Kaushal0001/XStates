@@ -73,7 +73,7 @@ const LocationSelector = () => {
             <h2>Select Location</h2>
             {error && <p style={{ color: "red" }}>{error}</p>}
             {/* Country */}
-            <select onChange={(e) => fetchStates(e.target.value)} >
+            <select onChange={(e) => fetchStates(e.target.value)} disabled={loading || !!error} style={{size:"1"}}>
                 <option value="">Select Country</option>
                 {countries.map((country) => (
                     <option key={country} value={country}>{country}</option>
@@ -81,7 +81,7 @@ const LocationSelector = () => {
             </select>
 
             {/* State */}
-            <select onChange={(e) => fetchCities(e.target.value)} disabled={!selectedCountry} style={{ marginLeft: "10px" }}>
+            <select onChange={(e) => fetchCities(e.target.value)} disabled={!selectedCountry} style={{ marginLeft: "10px",size:"1"}}>
                 <option value="">Select State</option>
                 {states.map((state) => (
                     <option key={state} value={state}>{state}</option>
@@ -89,7 +89,7 @@ const LocationSelector = () => {
             </select>
 
             {/* City */}
-            <select onChange={(e) => setSelectedCity(e.target.value)} disabled={!selectedState} style={{ marginLeft: "10px" }}>
+            <select onChange={(e) => setSelectedCity(e.target.value)} disabled={!selectedState} style={{ marginLeft: "10px",size:"1"}}> 
                 <option value="">Select City</option>
                 {cities.map((city) => (
                     <option key={city} value={city}>{city}</option>
