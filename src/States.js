@@ -22,7 +22,7 @@ const LocationSelector = () => {
                 setCountries(data);
             } catch (err) {
                 console.error("Error fetching data:", err);
-                setError("Failed to load countries. Please try again later.");
+                setError("Failed to fetch countries. Please try again later.");
             } finally {
                 setLoading(false);
             }
@@ -70,7 +70,8 @@ const LocationSelector = () => {
     return (
         <>
             <div style={{ textAlign: "center", fontFamily: "sans-serif" }}>
-            <h2>Select Location</h2><br />
+            <h2>Select Location</h2>
+            {error && <p style={{ color: "red" }}>{error}</p>}
             {/* Country */}
             <select onChange={(e) => fetchStates(e.target.value)} >
                 <option value="">Select Country</option>
