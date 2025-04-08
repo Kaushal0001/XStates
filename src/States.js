@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-
 const LocationSelector = () => {
     const [countries, setCountries] = useState([]);
     const [states, setStates] = useState([]);
@@ -68,33 +67,35 @@ const LocationSelector = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <>
-            <div style={{ textAlign: "center", fontFamily: "sans-serif" }}>
+        <div style={{ textAlign: "center", fontFamily: "sans-serif" }}>
             <h2>Select Location</h2>
+    
             {error && <p style={{ color: "red" }}>{error}</p>}
+    
             {/* Country */}
-            <select onChange={(e) => fetchStates(e.target.value)} disabled={loading || !!error} style={{size:"1"}}>
+            <select onChange={(e) => fetchStates(e.target.value)} disabled={loading || !!error} style={{ size: "1" }}>
                 <option value="">Select Country</option>
                 {countries.map((country) => (
                     <option key={country} value={country}>{country}</option>
                 ))}
             </select>
-
+    
             {/* State */}
-            <select onChange={(e) => fetchCities(e.target.value)} disabled={!selectedCountry} style={{ marginLeft: "10px",size:"1"}}>
+            <select onChange={(e) => fetchCities(e.target.value)} disabled={!selectedCountry} style={{ marginLeft: "10px", size: "1" }}>
                 <option value="">Select State</option>
                 {states.map((state) => (
                     <option key={state} value={state}>{state}</option>
                 ))}
             </select>
-
+    
             {/* City */}
-            <select onChange={(e) => setSelectedCity(e.target.value)} disabled={!selectedState} style={{ marginLeft: "10px",size:"1"}}> 
+            <select onChange={(e) => setSelectedCity(e.target.value)} disabled={!selectedState} style={{ marginLeft: "10px", size: "1" }}>
                 <option value="">Select City</option>
                 {cities.map((city) => (
                     <option key={city} value={city}>{city}</option>
                 ))}
             </select>
+    
             {selectedCity && (
                 <p>
                     <strong>You selected {selectedCity}, </strong>
@@ -102,7 +103,6 @@ const LocationSelector = () => {
                 </p>
             )}
         </div>
-        </>
     );
 };
 
