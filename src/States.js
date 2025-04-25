@@ -64,7 +64,7 @@ const LocationSelector = () => {
     };
 
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
+    if (error) return <p style={{ color: "red" }}>{error}</p>;
 
     return (
         <div style={{ textAlign: "center", fontFamily: "sans-serif" }}>
